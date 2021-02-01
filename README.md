@@ -12,7 +12,7 @@
 
 -----
 ## 3. 프로세스 정보
-```
+```java
 class process {
 	public int processNumber;
 	public int arriveTime;
@@ -39,7 +39,7 @@ class process {
 -----
 ## 4. FCFS 스케쥴링
 **1) 스케쥴링 알고리즘의 구현**
-```
+```java
 public void sortByArriveTime(process[] processes) {
 	for (int i = 0; i < numOfProcesses - 1; i++) {
 		int min = i;
@@ -54,7 +54,7 @@ public void sortByArriveTime(process[] processes) {
 }
 ```
 ㆍ 프로세스들을 도착시간 기준으로 오름차순 정렬을 해주는 메소드이다.   
-```
+```java
 public void findStartTime(process[] processes) {
 	processes[0].startTime = processes[0].arriveTime;
 	for (int i = 1; i < numOfProcesses; i++) {
@@ -63,7 +63,7 @@ public void findStartTime(process[] processes) {
 }
 ```
 ㆍ 도착시간을 기준으로 오름차순 정렬을 한 프로세스의 배열을 이용해 간트 차트 내에서 시작시간을 계산한다.   
-```
+```java
 public void findFinishTime(process[] processes) {
 	processes[0].finishTime = processes[0].startTime + processes[0].burstTime;
 	for (int i = 1; i < numOfProcesses; i++) {
@@ -74,7 +74,7 @@ public void findFinishTime(process[] processes) {
 ㆍ 도착시간을 기준으로 오름차순 정렬을 한 프로세스의 배열을 이용해 간트 차트 내에서 종료시간을 계산한다.   
 
 **2) 간트 차트의 표현**
-```
+```java
 public void paint(Graphics g) {
 	super.paint(g);
 	this.getContentPane().setBackground(Color.white);
@@ -117,7 +117,7 @@ public void paint(Graphics g) {
 -----
 ## 5. Non-Preemptive SJF 스케쥴링
 **1) 스케쥴링 알고리즘의 구현**
-```
+```java
 public void sortByBurstTime(process[] processes) {
 
 	for (int i = 0; i < numOfProcesses - 1; i++) {
@@ -184,7 +184,7 @@ public void sortByBurstTime(process[] processes) {
 ㆍ 프로세스들을 버스트 시간 기준으로 오름차순 정렬을 하는 알고리즘이다.   
 ㆍ 도착시간이 제일 빠른 프로세스가 배열의 0번째 자리에 위치한다.   
 ㆍ 나머지 프로세스들을 버스트시간 기준으로 오름차순 정렬을 하고, 전체 버스트시간을 늘려나가면서 전체 버스트시간 내에 도착하지 않은 프로세스의 위치를 변경하는 형식의 알고리즘이다.   
-```
+```java
 public void findStartTime(process[] processes) {
 	processes[0].startTime = processes[0].arriveTime;
 	for (int i = 1; i < numOfProcesses; i++) {
@@ -193,7 +193,7 @@ public void findStartTime(process[] processes) {
 }
 ```
 ㆍ sortBurstTime() 메소드를 이용해 프로세스 배열을 정렬한 후 간트 차트 내에서 프로세스별 시작시간을 구하는 알고리즘이다.   
-```
+```java
 public void findFinishTime(process[] processes) {
 	processes[0].finishTime = processes[0].startTime + processes[0].burstTime;
 	for (int i = 1; i < numOfProcesses; i++) {
@@ -204,7 +204,7 @@ public void findFinishTime(process[] processes) {
 ㆍsetStartTime() 메소드와 마찬가지로 sortBurstTime() 메소드를 이용해 프로세스 배열을 정렬한 후 간트 차트 내에서 프로세스별 시작시간을 구하는 알고리즘이다.   
 
 **2) 간트 차트의 표현**
-```
+```java
 public void paint(Graphics g) {
 	super.paint(g);
 	this.getContentPane().setBackground(Color.white);
@@ -247,7 +247,7 @@ public void paint(Graphics g) {
 -----
 ## 6. Preemptive SJF 스케쥴링
 **1) 스케쥴링 알고리즘의 구현**
-```
+```java
 public void findWaitingTime(process[] processes, int numOfProcesses) {
 
 	int burstTimeArr[] = new int[numOfProcesses];
@@ -308,7 +308,7 @@ public void findWaitingTime(process[] processes, int numOfProcesses) {
 ㆍ  각 프로세스의 대기시간을 구하는 알고리즘은 프로세스들의 총 실행시간만큼 반복된다.   
 ㆍ  모든 프로세스들 중에서 남아있는 버스트 시간이 가장 짧은 프로세스를 우선 찾고, 해당 프로세스의 버스트 시간을 1씩 줄여나가며 반복하는 형식이다.   
 ㆍ  프로세스의 버스트 시간이 끝나면 종료시간에서 프로세스의 버스트 시간과 프로세스의 도착시간을 빼서 해당 프로세스의 대기시간을 구한다.   
-```
+```java
 public void findTurnAroundTime(process processes[], int numOfprocesses) {
 	for (int i = 0; i < numOfprocesses; i++)
 		processes[i].turnAroundTime = processes[i].burstTime + processes[i].waitingTime;
@@ -318,7 +318,7 @@ public void findTurnAroundTime(process processes[], int numOfprocesses) {
 ㆍ findWaitingTime()메소드를 이용해서 각 프로세스의 대기시간을 구한 후 각 프로세스의 대기시간에서 각 프로세스의 버스트시간의 차이를 반환시간으로 한다.   
 
 **2) 간트 차트의 표현**
-```
+```java
 public void paint(Graphics g) {
 	super.paint(g);
 	this.getContentPane().setBackground(Color.white);
@@ -393,7 +393,7 @@ public void paint(Graphics g) {
 -----
 ## 7. Round Roibin 스케쥴링
 **1) 스케쥴링 알고리즘의 구현**
-```
+```java
 public void findWaitingTime(process[] processes, int numOfProcesses, int timeQuantum) {
 	int burstTimeCopy[] = new int[numOfProcesses];
 
@@ -429,7 +429,7 @@ public void findWaitingTime(process[] processes, int numOfProcesses, int timeQua
 ㆍ 우선, burstTimeCopy[] 배열의 각 프로세스의 버스트시간을 복사한다.   
 ㆍ burstTimeCopy[]배열의 값이 timeQuantum보다 클 경우 총 진행시간을 timeQuantum만큼 늘리고 burstTimeCopy[] 배열의 해당 값을 timeQuantum만큼 감소 시킨다.   
 ㆍ burstTimeCopy[]배열의 값이 timeQuantum보다 작을 경우 해당 프로세스의 대기시간은 총 진행시간에서 해당 프로세스의 현재 남아있는 버스트시간을 감소시켜 대기시간을 구한다.   
-```
+```java
 public void findTurnAroundTime(process[] processes, int nunOfProcesses) {
 	for (int i = 0; i < nunOfProcesses; i++)
 		processes[i].turnAroundTime = processes[i].burstTime + processes[i].waitingTime;
@@ -439,7 +439,7 @@ public void findTurnAroundTime(process[] processes, int nunOfProcesses) {
 ㆍ findWaitingTime()메소드를 이용해서 각 프로세스의 대기시간을 구한 후 각 프로세스의 대기시간에서 각 프로세스의 버스트시간의 차이를 반환시간으로 한다.   
 
 **2) 간트 차트의 표현**
-```
+```java
 public void paint(Graphics g) {
 	super.paint(g);
 	this.getContentPane().setBackground(Color.white);
