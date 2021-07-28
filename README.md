@@ -598,17 +598,17 @@ public void paint(Graphics g) {
 -----
 ## :star: 스케줄링 알고리즘의 테스트 및 결과 분석
 **:one: 스케줄링 알고리즘의 테스트**   
-<img src="https://user-images.githubusercontent.com/61148914/89640031-aa0a4200-d8e9-11ea-9b05-3504a8464d2f.JPG" width="55%">
+<img src="https://user-images.githubusercontent.com/61148914/89640031-aa0a4200-d8e9-11ea-9b05-3504a8464d2f.JPG" width="60%">
 
 ㆍ 각 스케줄링 알고리즘을 공평하게 평가하기 위하여 위 표와 같은 입력 예제를 각 스케줄링 알고리즘에게 동일하게 주어 테스트를 진행하였다.  
 ㆍ 도착시간을 고려하지 않고 구현한 Round Robin 스케줄링은 형평성을 위해 테스트 과정에서 제외하였다.   
 ㆍ 각 스케줄링 알고리즘은 평균 대기시간, 평균 반환시간으로 평가를 하였다.    
 
-<img src="https://user-images.githubusercontent.com/61148914/89640746-30735380-d8eb-11ea-994e-cb824e517b23.JPG" width="55%">
+<img src="https://user-images.githubusercontent.com/61148914/89640746-30735380-d8eb-11ea-994e-cb824e517b23.JPG" width="60%">
 
 ㆍ 4가지 입력 예제에 대해 각 스케줄링 기법의 벤치마킹 프로그램으로 평균 대기시간을 구하고 표로 작성 하였다.   
 
-<img src="https://user-images.githubusercontent.com/61148914/89640748-310bea00-d8eb-11ea-922c-1906eb67bc1e.JPG" width="55%">
+<img src="https://user-images.githubusercontent.com/61148914/89640748-310bea00-d8eb-11ea-922c-1906eb67bc1e.JPG" width="60%">
 
 ㆍ 4가지 입력 예제에 대해 각 스케줄링 기법의 벤치마킹 프로그램으로 평균 반환시간을 구하고 표로 작성 하였다.   
 </br>
